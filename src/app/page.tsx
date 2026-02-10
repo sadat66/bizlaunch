@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { ArrowRight, ShieldCheck, Zap, Users, CheckCircle2 } from 'lucide-react'
+import { ArrowRight, ShieldCheck, Zap, Users } from 'lucide-react'
 
 export default function Home() {
   return (
@@ -112,7 +112,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
             <div>
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Popular Services</h2>
-              <p className="text-secondary max-w-lg">Everything you need to stay compliant with Bangladesh's business laws.</p>
+              <p className="text-secondary max-w-lg">Everything you need to stay compliant with Bangladesh&apos;s business laws.</p>
             </div>
             <Link href="/services" className="text-primary font-bold flex items-center gap-2 group">
               View All Services <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-all" />
