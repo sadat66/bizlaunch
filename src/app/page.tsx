@@ -1,29 +1,12 @@
 import Link from 'next/link'
 import { ArrowRight, ShieldCheck, Zap, Users } from 'lucide-react'
+import Navbar from '@/components/Navbar'
 
 export default function Home() {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Navigation */}
-      <nav className="fixed top-0 w-full z-50 glass-card px-6 py-4 flex justify-between items-center bg-white/10 dark:bg-black/10 backdrop-blur-md">
-        <div className="flex items-center gap-2">
-          <div className="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-            B
-          </div>
-          <span className="text-2xl font-bold tracking-tight">BizLaunch</span>
-        </div>
-        <div className="hidden md:flex gap-8 items-center text-sm font-medium">
-          <Link href="#services" className="hover:text-primary transition-colors">Services</Link>
-          <Link href="#how-it-works" className="hover:text-primary transition-colors">How it Works</Link>
-          <Link href="#pricing" className="hover:text-primary transition-colors">Pricing</Link>
-          <Link href="/login" className="px-5 py-2 rounded-full border border-primary/20 hover:bg-primary/5 transition-all">
-            Login
-          </Link>
-          <Link href="/signup" className="px-5 py-2 rounded-full gradient-bg text-white shadow-xl hover:opacity-90 transition-all">
-            Get Started
-          </Link>
-        </div>
-      </nav>
+      <Navbar />
 
       {/* Hero Section */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden">
