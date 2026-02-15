@@ -91,7 +91,7 @@ export default function Navbar() {
                             <div className="absolute right-0 mt-2 w-56 glass-card rounded-2xl shadow-xl overflow-hidden py-2 animate-in fade-in zoom-in-95 duration-200">
                                 <div className="px-4 py-3 border-b border-glass-border">
                                     <p className="text-sm font-bold truncate text-foreground">
-                                        {user.user_metadata?.full_name || 'User'}
+                                        {user.user_metadata?.full_name || user.user_metadata?.name || 'User'}
                                     </p>
                                     <p className="text-xs text-secondary truncate">
                                         {user.email}
