@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase-client'
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2 } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, ArrowRight } from 'lucide-react'
+import { Spinner } from '@/components/ui/Spinner'
 
 export default function LoginPage() {
   const router = useRouter()
@@ -40,7 +41,7 @@ export default function LoginPage() {
         } catch (err) {
           console.warn('Error syncing user:', err)
         }
-        
+
         router.push('/dashboard')
         router.refresh()
       }
@@ -142,7 +143,7 @@ export default function LoginPage() {
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <Spinner size="sm" className="text-white" />
                   Signing in...
                 </>
               ) : (

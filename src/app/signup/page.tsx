@@ -4,7 +4,8 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase-client'
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2, User, Briefcase } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, ArrowRight, User, Briefcase } from 'lucide-react'
+import { Spinner } from '@/components/ui/Spinner'
 
 export default function SignupPage() {
   const router = useRouter()
@@ -116,8 +117,8 @@ export default function SignupPage() {
                 type="button"
                 onClick={() => setRole('CLIENT')}
                 className={`p-4 rounded-xl border transition-all ${role === 'CLIENT'
-                    ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
-                    : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
+                  ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
+                  : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
                   }`}
               >
                 <div className="flex flex-col items-center gap-2">
@@ -131,8 +132,8 @@ export default function SignupPage() {
                 type="button"
                 onClick={() => setRole('PROFESSIONAL')}
                 className={`p-4 rounded-xl border transition-all ${role === 'PROFESSIONAL'
-                    ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
-                    : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
+                  ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
+                  : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
                   }`}
               >
                 <div className="flex flex-col items-center gap-2">
@@ -243,7 +244,7 @@ export default function SignupPage() {
             >
               {loading ? (
                 <>
-                  <Loader2 className="w-5 h-5 animate-spin" />
+                  <Spinner size="sm" className="text-white" />
                   Creating account...
                 </>
               ) : (
