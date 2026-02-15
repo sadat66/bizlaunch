@@ -150,12 +150,12 @@ export default function Home() {
       {/* Footer */}
       <footer className="py-12 px-6 border-t border-glass-border">
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-          <div className="flex items-center gap-2">
+          <Link href="/" className="flex items-center gap-2">
             <div className="w-8 h-8 gradient-bg rounded-lg flex items-center justify-center text-white font-bold text-sm shadow-lg">
               B
             </div>
             <span className="text-xl font-bold tracking-tight">BizLaunch</span>
-          </div>
+          </Link>
           <div className="text-sm text-secondary">
             © 2026 BizLaunch. Handcrafted for the entrepreneurs of Bangladesh.
           </div>

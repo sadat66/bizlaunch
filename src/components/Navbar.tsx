@@ -42,16 +42,16 @@ export default function Navbar() {
 
     return (
         <nav className="fixed top-0 w-full z-50 glass-card px-6 py-4 flex justify-between items-center bg-white/10 dark:bg-black/10 backdrop-blur-md">
-            <div className="flex items-center gap-2">
+            <Link href="/" className="flex items-center gap-2">
                 <div className="w-10 h-10 gradient-bg rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
                     B
                 </div>
                 <span className="text-2xl font-bold tracking-tight">BizLaunch</span>
-            </div>
+            </Link>
             <div className="hidden md:flex gap-8 items-center text-sm font-medium">
-                <Link href="#services" className="hover:text-primary transition-colors">Services</Link>
-                <Link href="#how-it-works" className="hover:text-primary transition-colors">How it Works</Link>
-                <Link href="#pricing" className="hover:text-primary transition-colors">Pricing</Link>
+                <Link href="/services" className="hover:text-primary transition-colors">Services</Link>
+                <Link href="/how-it-works" className="hover:text-primary transition-colors">How it Works</Link>
+                <Link href="/pricing" className="hover:text-primary transition-colors">Pricing</Link>
 
                 {!loading && !user && (
                     <>
