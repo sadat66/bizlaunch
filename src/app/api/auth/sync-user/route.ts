@@ -20,9 +20,13 @@ export async function POST(request: NextRequest) {
       )
     }
 
+    const body = await request.json().catch(() => ({}))
+    const { role } = body
+
     // Sync user to Prisma
     const prismaUser = await getOrCreatePrismaUser(user, {
       name: user.user_metadata?.name || null,
+      role: role || 'CLIENT', // Default to CLIENT if not provided
     })
 
     return NextResponse.json({

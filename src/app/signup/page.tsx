@@ -4,7 +4,7 @@ import { useState } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
 import { supabase } from '@/lib/supabase-client'
-import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2, User } from 'lucide-react'
+import { Mail, Lock, Eye, EyeOff, ArrowRight, Loader2, User, Briefcase } from 'lucide-react'
 
 export default function SignupPage() {
   const router = useRouter()
@@ -16,6 +16,7 @@ export default function SignupPage() {
   const [showConfirmPassword, setShowConfirmPassword] = useState(false)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
+  const [role, setRole] = useState<'CLIENT' | 'PROFESSIONAL'>('CLIENT')
 
   const handleSignup = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -42,6 +43,7 @@ export default function SignupPage() {
         options: {
           data: {
             name: name,
+            role,
           },
         },
       })
@@ -54,6 +56,7 @@ export default function SignupPage() {
           const response = await fetch('/api/auth/sync-user', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ role }),
           })
           if (!response.ok) {
             console.warn('Failed to sync user to Prisma')
@@ -107,7 +110,40 @@ export default function SignupPage() {
               </div>
             )}
 
-            {/* Name Field */}
+            {/* Role Selection */}
+            <div className="grid grid-cols-2 gap-4">
+              <button
+                type="button"
+                onClick={() => setRole('CLIENT')}
+                className={`p-4 rounded-xl border transition-all ${role === 'CLIENT'
+                    ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
+                    : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
+                  }`}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <User className={`w-8 h-8 ${role === 'CLIENT' ? 'text-primary' : 'text-gray-400'}`} />
+                  <span className={`font-medium ${role === 'CLIENT' ? 'text-primary' : ''}`}>Client</span>
+                  <span className="text-xs text-center opacity-70">I want to hire professionals</span>
+                </div>
+              </button>
+
+              <button
+                type="button"
+                onClick={() => setRole('PROFESSIONAL')}
+                className={`p-4 rounded-xl border transition-all ${role === 'PROFESSIONAL'
+                    ? 'gradient-bg-light border-primary ring-2 ring-primary bg-primary/10'
+                    : 'glass-card border-glass-border hover:border-primary/50 text-secondary'
+                  }`}
+              >
+                <div className="flex flex-col items-center gap-2">
+                  <Briefcase className={`w-8 h-8 ${role === 'PROFESSIONAL' ? 'text-primary' : 'text-gray-400'}`} />
+                  <span className={`font-medium ${role === 'PROFESSIONAL' ? 'text-primary' : ''}`}>Service Provider</span>
+                  <span className="text-xs text-center opacity-70">I want to offer services</span>
+                </div>
+              </button>
+            </div>
+
+            {/* Name Field */}`
             <div>
               <label htmlFor="name" className="block text-sm font-medium mb-2">
                 Full Name
