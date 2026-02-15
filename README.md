@@ -1,36 +1,109 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# BizLaunch 🚀
 
-## Getting Started
+**Accelerating Business Launch in Bangladesh with Confidence.**
 
-First, run the development server:
+BizLaunch is the all-in-one marketplace connecting entrepreneurs with verified tax, legal, and compliance experts. From company registration to VAT filing, we simplify the bureaucratic process for businesses in Bangladesh.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## ✨ Features
+
+- **Role-Based Authentication**: Secure sign-up/login for both Clients (Business Owners) and Professionals (Service Providers) using Supabase Auth.
+- **Comprehensive Service Catalog**: Dedicated pages for browsing legal, tax, and compliance services.
+- **Interactive Dashboard**: Manage service requests, track application status, and view profile details.
+- **Modern UI/UX**: Built with a premium glassmorphism design system using Tailwind CSS, featuring smooth animations and responsive layouts.
+- **Seamless Compliance**: Integration with verified experts for Company Registration, Trade License, VAT/Tax Filing, and more.
+
+## 🛠 Tech Stack
+
+- **Framework**: [Next.js 16](https://nextjs.org/) (App Router, Turbopack)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+- **Authentication**: [Supabase Auth](https://supabase.com/auth)
+- **Database**: [PostgreSQL](https://www.postgresql.org/) (via Supabase)
+- **ORM**: [Prisma](https://www.prisma.io/)
+- **State Management**: React Hooks & Context
+- **Deployment**: [Vercel](https://vercel.com/)
+
+## 🚀 Getting Started
+
+Follow these steps to set up the project locally.
+
+### Prerequisites
+
+- **Node.js**: Ensure you have Node.js installed (v18+ recommended).
+- **Package Manager**: This project uses `pnpm`.
+
+### Installation
+
+1.  **Clone the repository:**
+    ```bash
+    git clone https://github.com/your-username/bizlaunch.git
+    cd bizlaunch
+    ```
+
+2.  **Install dependencies:**
+    ```bash
+    pnpm install
+    ```
+
+3.  **Environment Setup:**
+    Create a `.env` file in the root directory modeled after `.env.example`:
+    ```bash
+    cp .env.example .env
+    ```
+    Fill in your Supabase credentials and Database URL:
+    ```env
+    # Database (Supabase Connection Pooling)
+    DATABASE_URL="postgresql://postgres.[REF]:[PASS]@aws-0-us-east-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
+    
+    # Direct Connection (for Migrations)
+    DIRECT_URL="postgresql://postgres.[REF]:[PASS]@aws-0-us-east-1.pooler.supabase.com:5432/postgres"
+
+    # Supabase Auth
+    NEXT_PUBLIC_SUPABASE_URL="https://[YOUR-PROJECT-REF].supabase.co"
+    NEXT_PUBLIC_SUPABASE_ANON_KEY="[YOUR-ANON-KEY]"
+    ```
+
+4.  **Database Setup:**
+    Generate the Prisma client:
+    ```bash
+    pnpm prisma generate
+    ```
+    Push the schema to your database (if setting up fresh):
+    ```bash
+    pnpm prisma db push
+    ```
+
+5.  **Run Development Server:**
+    ```bash
+    pnpm dev
+    ```
+
+    Open [http://localhost:3000](http://localhost:3000) in your browser.
+
+## 📂 Project Structure
+
+```
+bizlaunch/
+├── prisma/             # Database schema and migrations
+│   └── schema.prisma
+├── public/             # Static assets
+├── src/
+│   ├── app/            # Next.js App Router pages
+│   │   ├── api/        # API Routes (Auth sync, etc.)
+│   │   ├── dashboard/  # Protected User Dashboard
+│   │   ├── services/   # Services Listing Page
+│   │   ├── auth/       # Authentication pages (login/signup)
+│   │   └── ...
+│   ├── components/     # Reusable UI components (Navbar, Spinner, etc.)
+│   ├── lib/            # Utilities (Prisma, Supabase clients)
+│   └── hooks/          # Custom React hooks
+└── ...
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## 🤝 Contributing
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Contributions are welcome! Please feel free to submit a Pull Request.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📄 License
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+This project is licensed under the MIT License.
